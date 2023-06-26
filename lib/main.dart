@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-import 'screen/homePage2.dart';
+import 'screen/homePage2/user_controller.dart';
+import 'screen/homePage3.dart';
 
 void main() {
+  //add objeto memoria celular
+  //Get.put<UserController>(UserController());
+
+  //add objeto memoria celular so quando ele for chamado
+  Get.lazyPut<UserController>(() => UserController());
+
   runApp(const MyApp());
 }
 
@@ -19,14 +27,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
       //home: HomePage(),
       //home: HomePage1(),
-      home: HomePage2(),
+      //home: HomePage2(),
+      home: const HomePage3(),
     );
   }
 }
